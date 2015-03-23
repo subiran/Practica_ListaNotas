@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 import org.w3c.dom.Text;
@@ -21,7 +22,7 @@ public class AddEditNotas extends Activity {
 
         Intent i = getIntent();
 
-        Id = i.getLongExtra(ListaNotasAcitvity.db.DB_LIST_ID, -1);//si estás vacío ponle "0"
+        Id = i.getLongExtra(ListaNotasAcitvity.db.DB_LIST_ID, -1);//si estás vacío ponle "-1"
         String Titulo = i.getStringExtra(ListaNotasAcitvity.db.DB_LIST_TITLE);
         String Nota = i.getStringExtra(ListaNotasAcitvity.db.DB_LIST_NOTE);
 
@@ -54,7 +55,7 @@ public class AddEditNotas extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void Guardar(){
+    public void Guardar(View v){
         EditText cuadro_titulo_nota;
         EditText cuadro_nota_en_si;
 
@@ -68,11 +69,16 @@ public class AddEditNotas extends Activity {
         nota_en_si = cuadro_nota_en_si.getText().toString();
 
         if(titulo_nota != "" || nota_en_si != ""){
-            ListaNotasAcitvity.db.addNote(titulo_nota, nota_en_si);
+            Intent in = new Intent(this, ListaNotasAcitvity.class);
+            if(Id <= -1){
+                ListaNotasAcitvity.db.addNote(titulo_nota, nota_en_si);//ListaNotasAcitvity.db.addNote()--> ejecuta la función addNote de db
+            }
+            else{
+                ListaNotasAcitvity.db.updateNote(Id, titulo_nota, nota_en_si);
+            }
+            startActivity(in);
         }
-        if(Id <= -1){
-            ListaNotasAcitvity.db.updateNote(Id, titulo_nota, nota_en_si);
-        }
+
     }
 
 }

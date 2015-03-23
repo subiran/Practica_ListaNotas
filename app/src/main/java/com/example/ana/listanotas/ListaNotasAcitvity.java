@@ -27,7 +27,7 @@ public class ListaNotasAcitvity extends Activity implements AdapterView.OnItemCl
 
         Cursor c = db.readNotes();//cursor --> controlador que permite navegar por los resultados
 
-        String[] fromColumns = {db.DB_ID, db.DB_TITLE, db.DB_NOTE};
+        String[] fromColumns = {db.DB_TITLE, db.DB_NOTE};
         int[] toViews = {R.id.getTitulo, R.id.getTexto};
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
@@ -80,6 +80,7 @@ public class ListaNotasAcitvity extends Activity implements AdapterView.OnItemCl
 
         String titulo = CogeTituloBS.getText().toString();
         String texto = CogeTextoBS.getText().toString();
+
 
         in.putExtra(db.DB_LIST_ID, id);//id vendría a ser uuna característica de DB_LIST_ID
         in.putExtra(db.DB_LIST_TITLE, titulo);//es la variable de arriba

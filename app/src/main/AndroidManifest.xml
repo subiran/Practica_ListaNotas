@@ -18,7 +18,8 @@
         </activity>
         <activity
             android:name=".AddEditNotas"
-            android:label="@string/title_activity_add_edit_notas" >
+            android:label="@string/title_activity_add_edit_notas"
+            android:parentActivityName=".ListaNotasAcitvity"><!--esto te hace q lista notas activity sea la papi de todas y que cuando estes en addedditnotas te saldrá una flechita arriba a la izquierda que te permita volver hacia atrás-->
         </activity>
     </application>
 

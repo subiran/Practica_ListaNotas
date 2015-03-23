@@ -14,16 +14,16 @@ import android.provider.BaseColumns;
 public class LlamadaBaseDatos extends SQLiteOpenHelper {
 
     public static final  int DB_VERSION = 1;
-    public static final String DB_NAME = "com.example.ana.ListaNotasActivity.Notas.db";
-    public static final String DB_TNAME = "com.example.ana.ListaNotasActivity.Notas";
+    public static final String DB_NAME = "Nombre_BD";
+    public static final String DB_TNAME = "TABLA_BD";
     public static final String DB_ID = BaseColumns._ID;
-    public static final String DB_TITLE = "com.example.ana.ListaNotasActivity.Titulo";
-    public static final String DB_NOTE = "com.example.ana.ListaNotasActivity.Nota";
+    public static final String DB_TITLE = "TITULO_DB";
+    public static final String DB_NOTE = "NOTA_DB";
 
     //Las siguientes variables no es necesario tenerlas aquí, no es info de la base de datos pero tienen inforamción de ella.
-    public static final String DB_LIST_ID = "com.example.ana.ListaNotasActivity.id";
-    public static final String DB_LIST_TITLE = "com.example.ana.ListaNotasActivity.titulo";
-    public static final String DB_LIST_NOTE = "com.example.ana.ListaNotasActivity.nota";
+    public static final String DB_LIST_ID = "ID_SELECCIONADO";
+    public static final String DB_LIST_TITLE = "TITULO_SELECCIONADO";
+    public static final String DB_LIST_NOTE = "NOTA_SELECCIONADA";
 
     public LlamadaBaseDatos(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
